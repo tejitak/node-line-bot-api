@@ -1,0 +1,26 @@
+{
+  "name": "node-line-bot-api",
+  "version": "0.1.0",
+  "description": "Node client for LINE Bot API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tejitak/node-line-bot-api.git"
+  },
+  "author": "tejitak",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tejitak/node-line-bot-api/issues"
+  },
+  "homepage": "https://github.com/tejitak/node-line-bot-api#readme",
+  "dependencies": {
+    "superagent": "^2.3.0"
+  },
+  "devDependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0"
+  }
+}
