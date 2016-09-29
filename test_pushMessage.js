@@ -22,5 +22,5 @@ line.client
         }
     ]
   })
-  .then(() => console.log({success: true})})
+  .then(() => console.log({success: true}))
   .catch(err => console.log(err))
