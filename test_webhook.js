@@ -5,17 +5,21 @@ const bodyParser = require('body-parser')
 const lineClient = line.client
 const lineValidator = line.validator
 const app = express()
-app.use(bodyParser.json())
+app.use(bodyParser.json({
+  verify (req,res,buf) {
+    req.rawBody = buf
+  }
+}))
 
 // init with auth
 line.init({
   accessToken: 'YOUR_ACCESS_TOKEN',
-  // (Optional) need webhook signature validation
+  // (Optional) for webhook signature validation
   channelSecret: 'YOUR_CHANNEL_SECRET'
 })
 
 /**
- * response exmpale:
+ * response example (https://devdocs.line.me/ja/#webhook):
  * {
  *   "events": [
  *     {

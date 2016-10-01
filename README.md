@@ -1,5 +1,5 @@
 # Node LINE Bot API
-node-line-bot-api is a node client wrapper for LINE Bot API.
+node-line-bot-api is a node.js SDK for LINE Bot API.
 
 LINE Bot API Docs
 https://devdocs.line.me/
@@ -17,12 +17,12 @@ You can setup auth data with the following samples
 const line = require('node-line-bot-api')
 line.init({
   accessToken: '{YOUR_ACCESS_TOKEN}',
-  // (Optional) need webhook signature validation
+  // (Optional) for webhook signature validation
   channelSecret: '{YOUR_CHANNEL_SECRET}'
 })
 ```
 
-## Sample push message
+## Push message sample
 
 ```JavaScript
 'use strict'
@@ -31,7 +31,7 @@ const line = require('node-line-bot-api')
 // init with auth
 line.init({
   accessToken: '{YOUR_ACCESS_TOKEN}',
-  // (Optional) need webhook signature validation
+  // (Optional) for webhook signature validation
   channelSecret: '{YOUR_CHANNEL_SECRET}'
 })
 
@@ -56,7 +56,7 @@ line.client
 
 ```JavaScript
 'use strict'
-const line = require('./index')
+const line = require('node-line-bot-api')
 const express = require('express')
 const bodyParser = require('body-parser')
 const lineClient = line.client
@@ -64,7 +64,7 @@ const lineValidator = line.validator
 const app = express()
 // need rawBody
 app.use(bodyParser.json({
-  verify(req,res,buf) {
+  verify (req, res, buf) {
     req.rawBody = buf
   }
 }))
@@ -72,7 +72,7 @@ app.use(bodyParser.json({
 // init with auth
 line.init({
   accessToken: 'YOUR_ACCESS_TOKEN',
-  // (Optional) need webhook signature validation
+  // (Optional) for webhook signature validation
   channelSecret: 'YOUR_CHANNEL_SECRET'
 })
 

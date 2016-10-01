@@ -4,7 +4,7 @@ const line = require('./index')
 // init with auth token
 line.init({
   accessToken: '{YOUR_ACCESS_TOKEN}',
-  // (Optional) need webhook signature validation
+  // (Optional) for webhook signature validation
   channelSecret: '{YOUR_CHANNEL_SECRET}'
 })
 
