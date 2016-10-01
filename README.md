@@ -62,7 +62,12 @@ const bodyParser = require('body-parser')
 const lineClient = line.client
 const lineValidator = line.validator
 const app = express()
-app.use(bodyParser.json())
+// need rawBody
+app.use(bodyParser.json({
+  verify(req,res,buf) {
+    req.rawBody = buf
+  }
+}))
 
 // init with auth
 line.init({
