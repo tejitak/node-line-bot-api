@@ -59,10 +59,9 @@ line.client
 const line = require('node-line-bot-api')
 const express = require('express')
 const bodyParser = require('body-parser')
-const lineClient = line.client
-const lineValidator = line.validator
 const app = express()
-// need rawBody
+
+// need raw buffer for signature validation
 app.use(bodyParser.json({
   verify (req, res, buf) {
     req.rawBody = buf

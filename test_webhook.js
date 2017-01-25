@@ -2,9 +2,9 @@
 const line = require('./index')
 const express = require('express')
 const bodyParser = require('body-parser')
-const lineClient = line.client
-const lineValidator = line.validator
 const app = express()
+
+// need raw buffer for signature validation
 app.use(bodyParser.json({
   verify (req, res, buf) {
     req.rawBody = buf
