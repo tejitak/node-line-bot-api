@@ -101,6 +101,45 @@ app.listen(process.env.PORT || 3000, () => {
 
 ```
 
+## Get a Message Content
+
+```JavaScript
+line.client
+  .getMessageContent('xxxxxxxxxx' /* messageId */)
+  .then((content) => {
+    // handle content
+  })
+```
+
+## Get a Profile
+
+```JavaScript
+line.client
+  .getProfile('xxxxxxxxxx' /* userId */)
+  .then((profile) => {
+    // handle profile
+    /**
+     * {
+     *   "displayName": "hoge hoge",
+     *   "userId": "xxxxxxxxxx",
+     *   "pictureUrl": "http://dl.profile.line-cdn.net/xxxxxxxxxx",
+     *   "statusMessage": "fuga"
+     * }
+     */
+  })
+```
+
+## Leave a Group
+
+```JavaScript
+line.client.leaveGroup('xxxxxxxxxx' /* groupId */)
+```
+
+## Leave a Room
+
+```JavaScript
+line.client.leaveRoom('xxxxxxxxxx' /* roomId */)
+```
 ## Supported Node Version
 
 Recommended node version is above v4.0.0 because this module is implemented with ES6.
