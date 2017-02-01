@@ -52,7 +52,7 @@ line.client
   })
 ```
 
-## Webhook sample with Express
+## Webhook setup sample with Express
 
 ```JavaScript
 'use strict'
@@ -99,6 +99,29 @@ app.listen(process.env.PORT || 3000, () => {
   console.log('Example app listening on port 3000!')
 })
 
+```
+
+## Handling webhook event type example (eg.'Freind Added')
+
+```JavaScript
+app.post('/webhook/', line.validator.validateSignature(), (req, res, next) => {
+  const promises = req.body.events.map(event => {
+    if (event.type === 'follow') {
+      // do something when your bot account is added as a friend
+      return Promise.resolve()
+    } else if (event.type === 'message') {
+      // do somthing when you get a message from followers
+      return Promise.resolve()
+    } else {
+      // other handling see the details in official docs
+      // https://devdocs.line.me/ja/#webhook-event-object
+      return Promise.resolve()
+    }
+  })
+  Promise
+    .all(promises)
+    .then(() => res.json({success: true}))
+})
 ```
 
 ## Get a Message Content
